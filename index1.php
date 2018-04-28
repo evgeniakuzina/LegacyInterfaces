@@ -189,11 +189,15 @@ class Bed extends OtherProduct {
     }
 }
 
-interface DiscountDown {
-    public function isDiscount();   
+trait DiscountDown {
+    public function isDiscount() {
+        if ($this->weight < 10) {
+            $this->discount = 0;
+            $this->delivery = 250;
+        }
+    }
 }
-
-class Laptop extends OtherProduct implements DiscountDown {
+class Laptop extends OtherProduct {
     public $ram;
     public $processer;
 
@@ -205,12 +209,9 @@ class Laptop extends OtherProduct implements DiscountDown {
         $this->processer = $processer;
         return $this;
     }
-    public function isDiscount() {
-        if ($this->weight < 10) {
-            $this->discount = 0;
-            $this->delivery = 250;
-        } 
-    }
+    
+    use DiscountDown;
+    
     public function getDiscription() {
         $this->isDiscount();
         parent::getDiscription();
