@@ -35,7 +35,6 @@ class Car extends SuperClass implements HowMuch {
         $this->model = $model;
         $this->color = $color;
 	}
-
     public function getPrice() {
         echo $this->price;
         echo "<br>";
@@ -60,7 +59,6 @@ class TV extends SuperClass implements HowMuch {
         $this->diagonal = $diagonal;
         $this->remoteControl = $remoteControl;
     }
-	
     public function getPrice() {
         echo $this->price;
         echo "<br>";
@@ -127,7 +125,6 @@ final class Product extends SuperClass implements HowMuch {
         $this->price = $price;
         $this->weight = $weight;
     }
-	
     public function getPrice() {
         echo $this->price;
         echo "<br>";
@@ -152,7 +149,6 @@ class OtherProduct {
         $this->weight = $weight;
         $this->price = $price;
     }
-
     public function getPrice() {
         return $this->price;
     }
@@ -174,7 +170,6 @@ class Cat extends OtherProduct {
         $this->gender = $gender;
         return $this;
     }
-
     public function setAge($age) {
         $this->age = $age;
         return $this;
@@ -189,7 +184,6 @@ class Bed extends OtherProduct {
         $this->size = $size;
         return $this;
     }
-
     public function setMaterial($material) {
         $this->material = $material;
         return $this;
@@ -209,19 +203,16 @@ class Laptop extends OtherProduct implements DiscountDown {
         $this->ram = $ram;
         return $this;
     }
-
     public function setProcesser($processer) {
         $this->processer = $processer;
         return $this;
     }
-
     public function isDiscount() {
         if ($this->weight < 10) {
             $this->discount = 0;
             $this->delivery = 250;
         } 
     }
-
     public function getDiscription() {
         $this->isDiscount();
         parent::getDiscription();
