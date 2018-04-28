@@ -135,13 +135,13 @@ $firstProduct = new Product('Тетрадь', 'Канцтовары', 20, 100);
 $secondProduct = new Product('Л.Н.Толстой "Война и Мир"', 'Книги', 100, 600);
 
 class OtherProduct {
-        public $category;
-        public $title;
-        public $weight;
-        protected $price;
-        public $delivery = 300;
-        public $discount = 10;
-        public $total;
+    public $category;
+    public $title;
+    public $weight;
+    protected $price;
+    public $delivery = 300;
+    public $discount = 10;
+    public $total;
 
     public function __construct($category, $title, $weight, $price) {
         $this->category = $category;
@@ -159,7 +159,6 @@ class OtherProduct {
             . $this->discount . '%. Итого: ' . $this->total;
         echo "<br>";
     }
-
 }
 
 class Cat extends OtherProduct {
@@ -191,8 +190,7 @@ class Bed extends OtherProduct {
 }
 
 interface DiscountDown {
-    public function isDiscount();
-    
+    public function isDiscount();   
 }
 
 class Laptop extends OtherProduct implements DiscountDown {
